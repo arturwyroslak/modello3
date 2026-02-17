@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modello3 — Portfolio Fotomodelki</title>
+  <meta name="description" content="Profesjonalne portfolio fotomodelki. Galeria zdjęć, informacje, usługi i kontakt." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="#">MODELLO</a>
+      <nav class="nav">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">O mnie</a>
+        <a href="#services">Usługi</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+      <button class="cta">Book</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner container">
+        <div class="hero-text">
+          <h1>Fotomodelka | Portfolio</h1>
+          <p>Elegancja • Profesjonalizm • Wszechstronność</p>
+          <div class="hero-actions">
+            <a class="btn" href="#portfolio">Zobacz portfolio</a>
+            <a class="btn ghost" href="#contact">Skontaktuj się</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="frame"> <!-- placeholder for hero image -->
+            <img src="assets/hero.jpg" alt="Hero" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio container">
+      <h2>Wybrane sesje</h2>
+      <div class="gallery" id="gallery">
+        <!-- JS will populate gallery placeholders -->
+      </div>
+    </section>
+
+    <section id="about" class="about container">
+      <div class="about-grid">
+        <div>
+          <h2>O mnie</h2>
+          <p>Profesjonalna fotomodelka z doświadczeniem w sesjach mody, beauty oraz komercyjnych. Współpracuję z fotografami, stylistami i agencjami, oferując pełne zaangażowanie i kreatywne podejście.</p>
+          <ul>
+            <li>Rozmiary: 178cm</li>
+            <li>Kolor włosów: Kasztanowe</li>
+            <li>Doświadczenie: 7 lat</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Media & Awards</h3>
+          <p>Publikacje: Vogue, Elle Polska</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services container">
+      <h2>Usługi</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Sesje Fashion</h3>
+          <p>Wysoki poziom profesjonalizmu, współpraca z kreatywnymi zespołami.</p>
+        </article>
+        <article class="card">
+          <h3>Beauty & Commercial</h3>
+          <p>Beauty shots i kampanie reklamowe z dbałością o detale.</p>
+        </article>
+        <article class="card">
+          <h3>Runway & Events</h3>
+          <p>Doświadczenie na wybiegach i eventach branżowych.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact container">
+      <h2>Kontakt</h2>
+      <form id="contactForm" class="contact-form">
+        <div class="row">
+          <input type="text" name="name" placeholder="Imię i nazwisko" required />
+          <input type="email" name="email" placeholder="Email" required />
+        </div>
+        <input type="text" name="subject" placeholder="Temat" />
+        <textarea name="message" placeholder="Wiadomość" rows="6" required></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Wyślij</button>
+          <span id="formStatus" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Modello. Wszystkie prawa zastrzeżone.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="TikTok">TT</a>
+        <a href="#" aria-label="Email">✉️</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
