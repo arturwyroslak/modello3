@@ -1,8 +1,19 @@
-// Gallery + accessible lightbox + local placeholders + booking bar hide on scroll
+// Gallery + accessible lightbox + captions + improved mobile behavior
 const galleryEl = document.getElementById('gallery');
-// local placeholders in /assets
+// placeholders in /assets
 const thumbs = Array.from({length:9},(_,i)=>`assets/thumb-${i+1}.svg`);
 const full = Array.from({length:9},(_,i)=>`assets/photo-${i+1}.svg`);
+const captions = [
+  'Editorial — natural light',
+  'Beauty — studio closeup',
+  'Lookbook — outdoor',
+  'Commercial — product',
+  'Fashion — high-contrast',
+  'Beauty — color story',
+  'Editorial — motion',
+  'Runway — backstage',
+  'Portrait — black & white'
+];
 
 function createThumb(src, i){
   const div = document.createElement('div');
@@ -10,7 +21,9 @@ function createThumb(src, i){
   div.setAttribute('tabindex','0');
   const img = document.createElement('img');
   img.src = src; img.alt = `Sesja ${i+1}`; img.loading='lazy';
+  const cap = document.createElement('div'); cap.className='caption'; cap.innerText = captions[i] || '';
   div.appendChild(img);
+  div.appendChild(cap);
   div.addEventListener('click',()=>openLightbox(i));
   div.addEventListener('keydown',(e)=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); } });
   return div;
@@ -36,7 +49,7 @@ function buildLightbox(index){
 
   const img = document.createElement('img');
   img.src = full[index] || thumbs[index];
-  img.alt = `Zdjęcie sesji ${index+1}`;
+  img.alt = captions[index] ? `${captions[index]}` : `Zdjęcie sesji ${index+1}`;
   img.loading = 'eager';
 
   const btnClose = document.createElement('button');
@@ -51,7 +64,7 @@ function buildLightbox(index){
   btnNext.className='next'; btnNext.innerText='▶'; btnNext.setAttribute('aria-label','Następne');
   btnNext.addEventListener('click', ()=>showIndex(currentIndex+1));
 
-  const meta = document.createElement('div'); meta.className='meta'; meta.innerText = `Zdjęcie ${index+1} z ${full.length}`;
+  const meta = document.createElement('div'); meta.className='meta'; meta.innerText = `${captions[index] || ''} — ${index+1}/${full.length}`;
 
   lightbox.appendChild(img);
   lightbox.appendChild(btnClose);
@@ -84,8 +97,8 @@ function showIndex(idx){
   currentIndex = idx;
   const img = lightbox.querySelector('img');
   const meta = lightbox.querySelector('.meta');
-  img.style.opacity = 0; setTimeout(()=>{ img.src = full[currentIndex] || thumbs[currentIndex]; img.style.opacity = 1; },120);
-  meta.innerText = `Zdjęcie ${currentIndex+1} z ${full.length}`;
+  img.style.opacity = 0; setTimeout(()=>{ img.src = full[currentIndex] || thumbs[currentIndex]; img.alt = captions[currentIndex] || `Zdjęcie ${currentIndex+1}`; img.style.opacity = 1; },120);
+  meta.innerText = `${captions[currentIndex] || ''} — ${currentIndex+1}/${full.length}`;
   lightbox.setAttribute('aria-label',`Galeria — zdjęcie ${currentIndex+1}`);
   preload(currentIndex+1);
 }
@@ -95,13 +108,15 @@ function closeLightbox(){ if(!lightbox) return; lightbox.remove(); lightbox = nu
 
 window.addEventListener('keydown',(e)=>{ if(!lightbox) return; if(e.key === 'Escape') closeLightbox(); if(e.key === 'ArrowLeft') showIndex(currentIndex-1); if(e.key === 'ArrowRight') showIndex(currentIndex+1); });
 
-// populate gallery
-thumbs.forEach((src,i)=> galleryEl.appendChild(createThumb(src,i)));
+// populate gallery with captions
+galleryEl && thumbs.forEach((src,i)=> galleryEl.appendChild(createThumb(src,i)));
 
-// Mobile nav toggle
+// Mobile nav toggle + escape to close
 const navToggle = document.querySelector('.nav-toggle');
 const mobileMenu = document.getElementById('mobileMenu');
 if(navToggle){ navToggle.addEventListener('click',()=>{ const expanded = navToggle.getAttribute('aria-expanded') === 'true'; navToggle.setAttribute('aria-expanded', String(!expanded)); if(!expanded){ mobileMenu.hidden = false; mobileMenu.querySelector('a')?.focus(); } else { mobileMenu.hidden = true; } }); }
+
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ if(mobileMenu && !mobileMenu.hidden){ mobileMenu.hidden = true; navToggle && navToggle.setAttribute('aria-expanded','false'); } } });
 
 document.querySelectorAll('#mobileMenu a').forEach(a=> a.addEventListener('click', ()=>{ mobileMenu.hidden = true; navToggle && navToggle.setAttribute('aria-expanded','false'); }));
 
