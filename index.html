@@ -4,10 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Modello3 — Portfolio Fotomodelki</title>
-  <meta name="description" content="Profesjonalne portfolio fotomodelki. Galeria zdjęć, informacje, usługi i kontakt." />
+  <meta name="description" content="Profesjonalne portfolio fotomodelki — selekcja sesji, informacje i kontakt." />
+  <meta property="og:title" content="Modello3 — Portfolio Fotomodelki" />
+  <meta property="og:description" content="Profesjonalne portfolio fotomodelki — selekcja sesji, informacje i kontakt." />
+  <meta property="og:image" content="https://picsum.photos/id/1011/1600/900" />
   <meta name="theme-color" content="#0b0b0b" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -35,31 +38,33 @@
 
   <main>
     <section class="hero" aria-label="Hero">
-      <div class="hero-inner container">
-        <div class="hero-text">
-          <span class="eyebrow">Fotomodelka · Fashion & Beauty</span>
-          <h1>Elegancja w kadrze — naturalnie, z pasją</h1>
-          <p class="sub">Sesje editorial, beauty i komercyjne. Kreatywna współpraca z fotografami, stylistami i agencjami.</p>
-          <div class="hero-actions">
-            <a class="btn" href="#portfolio">Zobacz portfolio</a>
-            <a class="btn ghost" href="#contact">Skontaktuj się</a>
+      <div class="hero-media" role="img" aria-label="Hero image" style="background-image: linear-gradient(180deg, rgba(10,10,10,0.25), rgba(10,10,10,0.6)), url('https://picsum.photos/id/1011/1600/1000')">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <div class="eyebrow">Fotomodelka · Fashion & Beauty</div>
+            <h1>Naturalność. Styl. Profesjonalizm.</h1>
+            <p class="sub">Współpraca editorial, beauty i komercyjna. Zapraszam do współpracy fotografów, stylistów i marki.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#portfolio">Zobacz sesje</a>
+              <a class="btn ghost" href="#contact">Zapytaj o booking</a>
+            </div>
           </div>
-          <ul class="facts" aria-hidden="true">
-            <li><strong>Wzrost:</strong> 178 cm</li>
-            <li><strong>Doświadczenie:</strong> 7 lat</li>
-            <li><strong>Publikacje:</strong> Vogue, Elle</li>
-          </ul>
-        </div>
-        <div class="hero-media" aria-hidden="false">
-          <div class="hero-photo" role="img" aria-label="Fotomodelka podczas sesji" style="background-image:url('assets/hero.jpg')"></div>
-          <div class="badge">Dostępna na bookingi</div>
+          <div class="hero-cv">
+            <ul class="facts" aria-hidden="true">
+              <li><strong>Wzrost:</strong> 178 cm</li>
+              <li><strong>Doświadczenie:</strong> 7 lat</li>
+              <li><strong>Publikacje:</strong> Vogue, Elle</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="portfolio" class="portfolio container">
-      <h2>Wybrane sesje</h2>
-      <p class="lead">Krótka selekcja najnowszych sesji — kliknij zdjęcie, by powiększyć.</p>
+      <div class="section-head">
+        <h2>Wybrane sesje</h2>
+        <p class="lead">Selekcja wybranych ujęć — kliknij by powiększyć. (Przykładowe obrazy: placeholdery)</p>
+      </div>
       <div class="gallery" id="gallery" aria-live="polite"></div>
     </section>
 
@@ -67,11 +72,11 @@
       <div class="about-grid">
         <div>
           <h2>O mnie</h2>
-          <p>Jestem modelką sesyjną, która ceni naturalność, ekspresję i profesjonalizm. Każdy projekt traktuję indywidualnie, dbając o precyzję i komunikację w zespole.</p>
+          <p>Jestem modelką sesyjną, która ceni naturalność, ekspresję i profesjonalizm. Do każdego projektu podchodzę kreatywnie, punktualnie i z otwartą komunikacją.</p>
           <ul>
-            <li>Doświadczenie: kampanie, lookbooki, editorial</li>
-            <li>Sesje studyjne i plenerowe</li>
-            <li>Dostępna do współpracy z agencjami</li>
+            <li>Sesje editorial, lookbooki, beauty</li>
+            <li>Doświadczenie w pracy ze stylistami i fotografami</li>
+            <li>Dostępna do współpracy i bookingów</li>
           </ul>
         </div>
         <aside>
@@ -91,7 +96,7 @@
         </article>
         <article class="card">
           <h3>Beauty & Commercial</h3>
-          <p>Beauty shots i kampanie reklamowe — precyzyjna praca z makijażem i światłem.</p>
+          <p>Beauty shots i kampanie reklamowe.</p>
         </article>
         <article class="card">
           <h3>Runway & Events</h3>
@@ -122,7 +127,7 @@
   </main>
 
   <footer class="site-footer" role="contentinfo">
-    <div class="container">
+    <div class="container footer-inner">
       <p>© 2026 Modello. Wszystkie prawa zastrzeżone.</p>
       <div class="socials">
         <a href="#" aria-label="Instagram">Instagram</a>
