@@ -12,7 +12,7 @@
 </head>
 <body>
   <header class="site-header" role="banner">
-    <div class="container">
+    <div class="container header-inner">
       <a class="logo" href="#">MODELLO</a>
       <nav class="nav" role="navigation" aria-label="Główne">
         <a href="#portfolio">Portfolio</a>
@@ -20,8 +20,10 @@
         <a href="#services">Usługi</a>
         <a href="#contact">Kontakt</a>
       </nav>
-      <a class="cta" href="#contact">Book</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+      <div class="header-actions">
+        <a class="cta" href="#contact">Book</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otwórz menu">☰</button>
+      </div>
     </div>
     <div id="mobileMenu" class="mobile-menu" hidden>
       <a href="#portfolio">Portfolio</a>
@@ -35,23 +37,22 @@
     <section class="hero" aria-label="Hero">
       <div class="hero-inner container">
         <div class="hero-text">
-          <h1>Fotomodelka • Elegancja w kadrze</h1>
-          <p>Profesjonalne sesje fashion, beauty i komercyjne. Współpraca z fotografami i agencjami — kreatywnie i na najwyższym poziomie.</p>
+          <span class="eyebrow">Fotomodelka · Fashion & Beauty</span>
+          <h1>Elegancja w kadrze — naturalnie, z pasją</h1>
+          <p class="sub">Sesje editorial, beauty i komercyjne. Kreatywna współpraca z fotografami, stylistami i agencjami.</p>
           <div class="hero-actions">
             <a class="btn" href="#portfolio">Zobacz portfolio</a>
             <a class="btn ghost" href="#contact">Skontaktuj się</a>
           </div>
-          <ul class="facts">
+          <ul class="facts" aria-hidden="true">
             <li><strong>Wzrost:</strong> 178 cm</li>
             <li><strong>Doświadczenie:</strong> 7 lat</li>
             <li><strong>Publikacje:</strong> Vogue, Elle</li>
           </ul>
         </div>
-        <div class="hero-media" aria-hidden="true">
-          <div class="frame">
-            <img src="assets/hero.jpg" alt="Fotomodelka podczas sesji" loading="eager"/>
-          </div>
-          <div class="badge">Available for bookings</div>
+        <div class="hero-media" aria-hidden="false">
+          <div class="hero-photo" role="img" aria-label="Fotomodelka podczas sesji" style="background-image:url('assets/hero.jpg')"></div>
+          <div class="badge">Dostępna na bookingi</div>
         </div>
       </div>
     </section>
@@ -66,16 +67,16 @@
       <div class="about-grid">
         <div>
           <h2>O mnie</h2>
-          <p>Jestem pasjonatką mody i fotografii. Stawiam na naturalność, ekspresję i profesjonalne podejście do każdego projektu. Współpracuję z zespołami kreatywnymi, dbając o terminowość i najwyższą jakość zdjęć.</p>
+          <p>Jestem modelką sesyjną, która ceni naturalność, ekspresję i profesjonalizm. Każdy projekt traktuję indywidualnie, dbając o precyzję i komunikację w zespole.</p>
           <ul>
-            <li>Modelka sesyjna (fashion, beauty, commercial)</li>
-            <li>Doświadczenie przy kampaniach reklamowych</li>
-            <li>Dostępna na sesje studyjne i plenerowe</li>
+            <li>Doświadczenie: kampanie, lookbooki, editorial</li>
+            <li>Sesje studyjne i plenerowe</li>
+            <li>Dostępna do współpracy z agencjami</li>
           </ul>
         </div>
         <aside>
-          <h3>Media & Awards</h3>
-          <p>Publikacje: Vogue, Elle Polska. Finalistka konkursu Young Face 2023.</p>
+          <h3>Publikacje & nagrody</h3>
+          <p>Vogue • Elle Polska • Finalistka Young Face 2023</p>
           <a class="btn small" href="#contact">Zapytaj o dostępność</a>
         </aside>
       </div>
@@ -86,15 +87,15 @@
       <div class="cards">
         <article class="card">
           <h3>Sesje Fashion</h3>
-          <p>Profesjonalne sesje lookbook, editorial i haute-couture.</p>
+          <p>Editorial, lookbook i koncepty kreatywne.</p>
         </article>
         <article class="card">
           <h3>Beauty & Commercial</h3>
-          <p>Beauty shots oraz kampanie reklamowe — precyzyjna praca z makijażem i światłem.</p>
+          <p>Beauty shots i kampanie reklamowe — precyzyjna praca z makijażem i światłem.</p>
         </article>
         <article class="card">
           <h3>Runway & Events</h3>
-          <p>Pokazy mody, eventy branżowe oraz hostowanie.</p>
+          <p>Pokazy mody, eventy branżowe, hostowanie.</p>
         </article>
       </div>
     </section>
@@ -109,12 +110,12 @@
           <input id="email" type="email" name="email" placeholder="Email" required />
         </div>
         <label class="sr-only" for="subject">Temat</label>
-        <input id="subject" type="text" name="subject" placeholder="Temat" />
+        <input id="subject" type="text" name="subject" placeholder="Temat (opcjonalny)" />
         <label class="sr-only" for="message">Wiadomość</label>
         <textarea id="message" name="message" placeholder="Wiadomość" rows="6" required></textarea>
         <div class="form-actions">
           <button type="submit" class="btn primary">Wyślij</button>
-          <span id="formStatus" aria-live="polite"></span>
+          <span id="formStatus" class="form-status" aria-live="polite"></span>
         </div>
       </form>
     </section>
