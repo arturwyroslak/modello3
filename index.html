@@ -5,63 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Modello3 — Portfolio Fotomodelki</title>
   <meta name="description" content="Profesjonalne portfolio fotomodelki. Galeria zdjęć, informacje, usługi i kontakt." />
+  <meta name="theme-color" content="#0b0b0b" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" role="banner">
     <div class="container">
       <a class="logo" href="#">MODELLO</a>
-      <nav class="nav">
+      <nav class="nav" role="navigation" aria-label="Główne">
         <a href="#portfolio">Portfolio</a>
         <a href="#about">O mnie</a>
         <a href="#services">Usługi</a>
         <a href="#contact">Kontakt</a>
       </nav>
-      <button class="cta">Book</button>
+      <a class="cta" href="#contact">Book</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu" hidden>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">O mnie</a>
+      <a href="#services">Usługi</a>
+      <a href="#contact">Kontakt</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" aria-label="Hero">
       <div class="hero-inner container">
         <div class="hero-text">
-          <h1>Fotomodelka | Portfolio</h1>
-          <p>Elegancja • Profesjonalizm • Wszechstronność</p>
+          <h1>Fotomodelka • Elegancja w kadrze</h1>
+          <p>Profesjonalne sesje fashion, beauty i komercyjne. Współpraca z fotografami i agencjami — kreatywnie i na najwyższym poziomie.</p>
           <div class="hero-actions">
             <a class="btn" href="#portfolio">Zobacz portfolio</a>
             <a class="btn ghost" href="#contact">Skontaktuj się</a>
           </div>
+          <ul class="facts">
+            <li><strong>Wzrost:</strong> 178 cm</li>
+            <li><strong>Doświadczenie:</strong> 7 lat</li>
+            <li><strong>Publikacje:</strong> Vogue, Elle</li>
+          </ul>
         </div>
-        <div class="hero-media">
-          <div class="frame"> <!-- placeholder for hero image -->
-            <img src="assets/hero.jpg" alt="Hero" />
+        <div class="hero-media" aria-hidden="true">
+          <div class="frame">
+            <img src="assets/hero.jpg" alt="Fotomodelka podczas sesji" loading="eager"/>
           </div>
+          <div class="badge">Available for bookings</div>
         </div>
       </div>
     </section>
 
     <section id="portfolio" class="portfolio container">
       <h2>Wybrane sesje</h2>
-      <div class="gallery" id="gallery">
-        <!-- JS will populate gallery placeholders -->
-      </div>
+      <p class="lead">Krótka selekcja najnowszych sesji — kliknij zdjęcie, by powiększyć.</p>
+      <div class="gallery" id="gallery" aria-live="polite"></div>
     </section>
 
     <section id="about" class="about container">
       <div class="about-grid">
         <div>
           <h2>O mnie</h2>
-          <p>Profesjonalna fotomodelka z doświadczeniem w sesjach mody, beauty oraz komercyjnych. Współpracuję z fotografami, stylistami i agencjami, oferując pełne zaangażowanie i kreatywne podejście.</p>
+          <p>Jestem pasjonatką mody i fotografii. Stawiam na naturalność, ekspresję i profesjonalne podejście do każdego projektu. Współpracuję z zespołami kreatywnymi, dbając o terminowość i najwyższą jakość zdjęć.</p>
           <ul>
-            <li>Rozmiary: 178cm</li>
-            <li>Kolor włosów: Kasztanowe</li>
-            <li>Doświadczenie: 7 lat</li>
+            <li>Modelka sesyjna (fashion, beauty, commercial)</li>
+            <li>Doświadczenie przy kampaniach reklamowych</li>
+            <li>Dostępna na sesje studyjne i plenerowe</li>
           </ul>
         </div>
-        <div>
+        <aside>
           <h3>Media & Awards</h3>
-          <p>Publikacje: Vogue, Elle Polska</p>
-        </div>
+          <p>Publikacje: Vogue, Elle Polska. Finalistka konkursu Young Face 2023.</p>
+          <a class="btn small" href="#contact">Zapytaj o dostępność</a>
+        </aside>
       </div>
     </section>
 
@@ -70,28 +86,32 @@
       <div class="cards">
         <article class="card">
           <h3>Sesje Fashion</h3>
-          <p>Wysoki poziom profesjonalizmu, współpraca z kreatywnymi zespołami.</p>
+          <p>Profesjonalne sesje lookbook, editorial i haute-couture.</p>
         </article>
         <article class="card">
           <h3>Beauty & Commercial</h3>
-          <p>Beauty shots i kampanie reklamowe z dbałością o detale.</p>
+          <p>Beauty shots oraz kampanie reklamowe — precyzyjna praca z makijażem i światłem.</p>
         </article>
         <article class="card">
           <h3>Runway & Events</h3>
-          <p>Doświadczenie na wybiegach i eventach branżowych.</p>
+          <p>Pokazy mody, eventy branżowe oraz hostowanie.</p>
         </article>
       </div>
     </section>
 
     <section id="contact" class="contact container">
       <h2>Kontakt</h2>
-      <form id="contactForm" class="contact-form">
+      <form id="contactForm" class="contact-form" novalidate>
         <div class="row">
-          <input type="text" name="name" placeholder="Imię i nazwisko" required />
-          <input type="email" name="email" placeholder="Email" required />
+          <label class="sr-only" for="name">Imię i nazwisko</label>
+          <input id="name" type="text" name="name" placeholder="Imię i nazwisko" required />
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="Email" required />
         </div>
-        <input type="text" name="subject" placeholder="Temat" />
-        <textarea name="message" placeholder="Wiadomość" rows="6" required></textarea>
+        <label class="sr-only" for="subject">Temat</label>
+        <input id="subject" type="text" name="subject" placeholder="Temat" />
+        <label class="sr-only" for="message">Wiadomość</label>
+        <textarea id="message" name="message" placeholder="Wiadomość" rows="6" required></textarea>
         <div class="form-actions">
           <button type="submit" class="btn primary">Wyślij</button>
           <span id="formStatus" aria-live="polite"></span>
@@ -100,13 +120,13 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container">
       <p>© 2026 Modello. Wszystkie prawa zastrzeżone.</p>
       <div class="socials">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="TikTok">TT</a>
-        <a href="#" aria-label="Email">✉️</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="TikTok">TikTok</a>
+        <a href="#" aria-label="Email">Email</a>
       </div>
     </div>
   </footer>
