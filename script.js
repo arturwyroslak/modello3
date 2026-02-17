@@ -1,9 +1,8 @@
-// Gallery + accessible lightbox + improved UX
+// Gallery + accessible lightbox + local placeholders + booking bar hide on scroll
 const galleryEl = document.getElementById('gallery');
-// Use picsum placeholders (replace with real assets when available)
-const ids = [1011,1005,1025,1015,1021,1003,1016,1027,1031];
-const thumbs = ids.map(id => `https://picsum.photos/id/${id}/800/600`);
-const full = ids.map(id => `https://picsum.photos/id/${id}/1600/1000`);
+// local placeholders in /assets
+const thumbs = Array.from({length:9},(_,i)=>`assets/thumb-${i+1}.svg`);
+const full = Array.from({length:9},(_,i)=>`assets/photo-${i+1}.svg`);
 
 function createThumb(src, i){
   const div = document.createElement('div');
@@ -126,3 +125,15 @@ if(form){
 
 // Smooth scroll for internal links
 document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click', (e)=>{ const href = a.getAttribute('href'); if(href.length>1){ e.preventDefault(); document.querySelector(href)?.scrollIntoView({behavior:'smooth'}); mobileMenu.hidden = true; navToggle && navToggle.setAttribute('aria-expanded','false'); } }); });
+
+// Booking bar: hide on scroll down, show on scroll up
+const bookingBar = document.querySelector('.booking-bar');
+let lastScroll = window.scrollY;
+if(bookingBar){
+  window.addEventListener('scroll', ()=>{
+    const current = window.scrollY;
+    if(current > lastScroll + 20) bookingBar.style.transform = 'translateY(120%)';
+    if(current < lastScroll - 20) bookingBar.style.transform = 'translateY(0)';
+    lastScroll = current;
+  });
+}

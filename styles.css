@@ -1,9 +1,9 @@
-/* Refreshed visual design for Model portfolio */
+/* Visible update: booking bar, testimonials, clearer hero */
 :root{--bg:#0b0b0b;--muted:#b6bec6;--accent:#e7b8ff;--accent-2:#ff9aa8;--card:#0f0f10;--glass:rgba(255,255,255,0.03);--max:1200px}
 *{box-sizing:border-box}body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:0;background:linear-gradient(180deg,#050505,#0b0b0b);color:#eef1f4;-webkit-font-smoothing:antialiased}
 .container{max-width:var(--max);margin:0 auto;padding:2rem}
 .header-inner{display:flex;align-items:center;gap:1rem}
-.site-header{position:sticky;top:0;background:linear-gradient(180deg, rgba(8,8,8,0.7), rgba(8,8,8,0.35));backdrop-filter:blur(6px);z-index:60;border-bottom:1px solid rgba(255,255,255,0.03)}
+.site-header{position:sticky;top:0;background:linear-gradient(180deg, rgba(8,8,8,0.8), rgba(8,8,8,0.35));backdrop-filter:blur(6px);z-index:60;border-bottom:1px solid rgba(255,255,255,0.03)}
 .logo{font-family:'Playfair Display', serif;font-weight:600;letter-spacing:2px;color:#fff;text-decoration:none;font-size:1.05rem}
 .nav{display:flex;gap:1rem;margin-left:auto}
 .nav a{color:var(--muted);text-decoration:none;padding:.4rem .6rem;border-radius:8px;font-weight:600}
@@ -15,9 +15,9 @@
 .mobile-menu a{padding:.6rem 0;color:var(--muted);text-decoration:none}
 
 /* HERO */
-.hero-media{padding:6rem 0;background-size:cover;background-position:center;border-bottom:1px solid rgba(255,255,255,0.02)}
+.hero-media{padding:6rem 0;background-size:cover;background-position:center;border-bottom:1px solid rgba(255,255,255,0.02);min-height:420px;display:flex;align-items:center}
 .hero-inner{display:flex;align-items:center;gap:2rem}
-.hero-text{max-width:720px}
+.hero-text{max-width:720px;background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.06));padding:1.4rem;border-radius:12px}
 .eyebrow{display:inline-block;color:var(--accent);font-weight:700;margin-bottom:.6rem}
 .hero-text h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.6rem);margin:0;color:#fff;line-height:1.02}
 .sub{color:var(--muted);margin-top:.7rem;font-size:1.05rem}
@@ -37,6 +37,11 @@
 .thumb:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 28px 60px rgba(0,0,0,0.6)}
 .gallery img{width:100%;height:220px;object-fit:cover;display:block}
 
+/* TESTIMONIAL */
+.testimonials{margin-top:2rem}
+.quote{background:linear-gradient(90deg, rgba(231,184,255,0.04), rgba(255,166,179,0.02));padding:1rem;border-radius:12px;color:var(--muted);font-style:italic}
+.quote span{display:block;margin-top:.6rem;font-weight:700;color:#fff}
+
 /* CARDS */
 .about-grid{display:grid;grid-template-columns:1fr 320px;gap:2rem}
 .cards{display:flex;gap:1rem;margin-top:1rem}
@@ -51,6 +56,12 @@
 .contact-form input:focus,.contact-form textarea:focus{box-shadow:0 10px 30px rgba(231,184,255,0.06);border-color:rgba(231,184,255,0.24)}
 .form-actions{display:flex;gap:1rem;align-items:center}
 .form-status{color:var(--muted);font-size:.95rem}
+
+/* BOOKING BAR */
+.booking-bar{position:fixed;right:16px;left:16px;bottom:18px;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:.6rem;border-radius:999px;box-shadow:0 12px 40px rgba(0,0,0,0.5);z-index:220;display:flex;align-items:center;justify-content:center}
+.booking-inner{display:flex;align-items:center;gap:1rem;justify-content:space-between;width:100%;max-width:var(--max)}
+.booking-text{color:#111;font-weight:700}
+.booking-actions{display:flex;gap:.6rem}
 
 .site-footer{border-top:1px solid rgba(255,255,255,0.02);padding:1.5rem 0;color:var(--muted);margin-top:3rem}
 .socials a{margin-left:0.5rem;color:var(--muted);text-decoration:none}
@@ -69,6 +80,7 @@
 /* Responsive */
 @media(max-width:980px){
   .about-grid{grid-template-columns:1fr}
+  .booking-inner{flex-direction:column;gap:.6rem}
 }
 @media(max-width:700px){
   .nav{display:none}
@@ -81,5 +93,5 @@
 }
 @media(max-width:480px){
   .gallery img{height:120px}
-  .badge{display:none}
+  .booking-bar{left:12px;right:12px;padding:.5rem}
 }

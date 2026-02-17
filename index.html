@@ -7,7 +7,7 @@
   <meta name="description" content="Profesjonalne portfolio fotomodelki — selekcja sesji, informacje i kontakt." />
   <meta property="og:title" content="Modello3 — Portfolio Fotomodelki" />
   <meta property="og:description" content="Profesjonalne portfolio fotomodelki — selekcja sesji, informacje i kontakt." />
-  <meta property="og:image" content="https://picsum.photos/id/1011/1600/900" />
+  <meta property="og:image" content="assets/hero.svg" />
   <meta name="theme-color" content="#0b0b0b" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@
 
   <main>
     <section class="hero" aria-label="Hero">
-      <div class="hero-media" role="img" aria-label="Hero image" style="background-image: linear-gradient(180deg, rgba(10,10,10,0.25), rgba(10,10,10,0.6)), url('https://picsum.photos/id/1011/1600/1000')">
+      <div class="hero-media" role="img" aria-label="Hero image" style="background-image: url('assets/hero.svg')">
         <div class="container hero-inner">
           <div class="hero-text">
             <div class="eyebrow">Fotomodelka · Fashion & Beauty</div>
@@ -63,9 +63,14 @@
     <section id="portfolio" class="portfolio container">
       <div class="section-head">
         <h2>Wybrane sesje</h2>
-        <p class="lead">Selekcja wybranych ujęć — kliknij by powiększyć. (Przykładowe obrazy: placeholdery)</p>
+        <p class="lead">Selekcja wybranych ujęć — kliknij by powiększyć. Zastąp pliki w /assets/ zdjęciami.</p>
       </div>
       <div class="gallery" id="gallery" aria-live="polite"></div>
+    </section>
+
+    <section id="testimonials" class="testimonials container">
+      <h2>Opinie</h2>
+      <div class="quote">"Profesjonalna, punktualna i kreatywna — najlepsza współpraca w 2025." <span>— Fotograf: Anna Kowalska</span></div>
     </section>
 
     <section id="about" class="about container">
@@ -125,6 +130,16 @@
       </form>
     </section>
   </main>
+
+  <div class="booking-bar" role="region" aria-label="Bookuj teraz">
+    <div class="container booking-inner">
+      <div class="booking-text">Dostępna na bookingi — szybką rezerwację wykonasz mailowo lub telefonicznie</div>
+      <div class="booking-actions">
+        <a class="btn small" href="#contact">Napisz</a>
+        <a class="btn ghost" href="#contact">Sprawdź dostępność</a>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
